@@ -26,7 +26,6 @@
      job: ansible-pull -o -U https://github.com/TJ8292/ansible-desktop.git
 
   - name: install vim-nox
-    become_user: simone
     package: 
      name: 
         - vim-nox
