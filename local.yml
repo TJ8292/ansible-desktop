@@ -8,7 +8,7 @@
   - name: add ansible user
     user:
       name: simone
-      system: yes
+      groups: root
 
   - name: set up sudo for ansible user
     copy:
