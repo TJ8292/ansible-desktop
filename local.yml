@@ -21,7 +21,7 @@
   - name: add ansible-pull cron job
     cron:
      name: ansible auto-provision
-     user: simone
+     user: juniastchambakuiteul
      minute: "*/10"
      job: ansible-pull -o -U https://github.com/TJ8292/ansible-desktop.git
 
