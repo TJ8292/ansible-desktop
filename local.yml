@@ -14,8 +14,8 @@
     copy:
      src: files/sudoer_simone
      dest: /etc/sudoers.d/simone
-     owner: root
-     group: root
+     owner: juniastchambakuiteul
+     group: staff
      mode: 0440 
 
   - name: add ansible-pull cron job
