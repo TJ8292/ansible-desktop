@@ -4,7 +4,31 @@
   become: true
 
   tasks:
+
+  - name: add ansible user
+    user:
+      name: simone
+      system: yes
+
+  - name: set up sudo for ansible user
+    copy:
+     src: files/sudoer_simone
+     dest: /etc/sudoers.d/simone
+     owner: root
+     group: root
+     mode: 0440 
+
+  - name: add ansible-pull cron job
+    cron:
+     name: ansible auto-provision
+     user: simone
+     minute: "*/10"
+     job: ansible-pull -o -U https://github.com/TJ8292/ansible-desktop.git
+
   - name: install vim-nox
-    become_user: root
+    become_user: simone
     package: 
-     name: vim-nox
+     name: 
+        - vim-nox
+	- python3-psutil
+
