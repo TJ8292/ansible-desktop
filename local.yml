@@ -5,25 +5,11 @@
 
   tasks:
 
-  - name: add ansible user
+  - name: remove ansible user
     user:
       name: simone
-      groups: staff
-
-  - name: set up sudo for ansible user
-    copy:
-     src: files/sudoer_simone
-     dest: /etc/sudoers.d/simone
-     owner: juniastchambakuiteul
-     group: staff
-     mode: 0440 
-
-  - name: add ansible-pull cron job
-    cron:
-     name: ansible auto-provision
-     user: juniastchambakuiteul
-     minute: "*/10"
-     job: ansible-pull -o -U https://github.com/TJ8292/ansible-desktop.git
+      state: absent
+      remove: yes
 
   - name: install vim-nox
     package: 
